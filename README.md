@@ -67,7 +67,7 @@ mkdir genomes
 ls paecilomyces_ncbi/ncbi_dataset/data/ | grep -v json | while read genome
 do
 genome2=$( echo $genome | sed 's/_//' | awk -F "." '{print $1}')
-cat paecilomyces_ncbi/ncbi_dataset/data/$genome/$genome*.fna | sed "s/>/>${genome2}\_/g" > genomes/$genome2.fa
+zcat paecilomyces_ncbi/ncbi_dataset/data/$genome/$genome*.fna.gz | sed "s/>/>${genome2}\_/g" > genomes/$genome2.fa
 done
 
 ############################################################
