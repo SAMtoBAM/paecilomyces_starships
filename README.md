@@ -49,7 +49,7 @@ mkdir submit_scripts
 
 ######################## ASSEMBLIES ########################
 
-###### DID NOT PERFORM BUT COULD BE DONE (note above) ######
+###### DID NOT PERFORM BELOW STEPS BUT YOU COULD INSTEAD OF USING A METADATA FILE AS I DID (note above) ######
 ##will download genomes using the ncbi toolkit; create a conda env for it
 #mamba create -n ncbi_datasets
 #conda activate ncbi_datasets
@@ -62,17 +62,19 @@ datasets rehydrate --gzip --directory paecilomyces_ncbi/
 ##extract metadata for the genomes just in case
 dataformat tsv genome --fields accession,current-accession,organism-name,organism-infraspecific-isolate,organism-infraspecific-strain,assmstats-contig-l50,assmstats-contig-n50,assmstats-gc-count,assmstats-gc-percent,assmstats-genome-coverage,assmstats-number-of-component-sequences,assmstats-number-of-contigs,assmstats-number-of-organelles,assmstats-number-of-scaffolds,assmstats-scaffold-l50,assmstats-scaffold-n50,assmstats-total-sequence-len,assmstats-total-ungapped-len,organism-tax-id,source_database,type_material-display_text,type_material-label,wgs-contigs-url,wgs-project-accession,wgs-url --inputfile paecilomyces_ncbi/ncbi_dataset/data/assembly_data_report.jsonl > paecilomyces_ncbi.assembly_data_report.tsv
 conda deactivate
-##move to the directory genomes and rename the files with just the public genome accession (without the underscore)
-mkdir genomes
+##move to the directory for raw assemblies and rename the files with just the public genome accession (without the underscore)
 ls paecilomyces_ncbi/ncbi_dataset/data/ | grep -v json | while read genome
 do
 genome2=$( echo $genome | sed 's/_//' | awk -F "." '{print $1}')
-zcat paecilomyces_ncbi/ncbi_dataset/data/$genome/$genome*.fna.gz | sed "s/>/>${genome2}\_/g" > genomes/$genome2.fa
+zcat paecilomyces_ncbi/ncbi_dataset/data/$genome/$genome*.fna.gz | sed "s/>/>${genome2}\_/g" > 1.curation/1.raw/$genome2.fa
 done
+## can remove all the ncbi data now
+rm paecilomyces_ncbi.zip
+rm -r paecilomyces_ncbi/
 
-############################################################
+###### DID NOT PERFORM ABOVE STEPS BUT YOU  COULD INSTEAD OF USING A METADATA FILE AS I DID (note above) ######
 
-## the assemblies have been given manually and therefore needed to be placed in the 1.curation/1.raw/ folder
+## the assemblies were given manually and therefore needed to be placed in the 1.curation/1.raw/ folder
 ## the naming system should be simply 'accession.fa' or 'strain.fa'
 ## all previously softmasked nucleotides have been made uppercase also ( awk '{if($0 ~ ">") {print $0} else {print toupper($0)}}' )
 
