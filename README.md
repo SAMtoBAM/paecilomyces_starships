@@ -1,5 +1,5 @@
 # paecilomyces_starships
-## Describing the Starship repertoire of the Paecilomyces genus using 81 (mostly public in 2024) genomes
+## Describing the Starship repertoire of the Paecilomyces genus using 79 (mostly public in 2024) genomes
 
 This reposistory is for the data analysis done for XXXXX et al. 20XX in order to describe all Paecilomyces Starships <br/>
 The dataset uses mostly public available genomes (at the moment) <br/>
@@ -78,7 +78,7 @@ rm -r paecilomyces_ncbi/
 ## the naming system should be simply 'accession.fa' or 'strain.fa'
 ## all previously softmasked nucleotides have been made uppercase also ( awk '{if($0 ~ ">") {print $0} else {print toupper($0)}}' )
 
-## currently have 82 Paecilomyces sp. genomes (removed 1 Monascus floridanus; incorrectly identified as Paecilomyces previously but too distant to be useful)
+## currently have 79 Paecilomyces sp. genomes (removed 1 Monascus floridanus; incorrectly identified as Paecilomyces previously but too distant to be useful)
 ## 29 from Viergie et al. and are not yet public
 ## 1 long-read assembly from Andrew and not yet public (replacing the short read assembly for the same strain)
 ## only 4 long-read assemblies in total (2 variotti, 1 dactylethromorphus, 1 formosus)
