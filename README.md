@@ -85,4 +85,19 @@ rm -r paecilomyces_ncbi/
 
 ## UPDATE Dec 2024; all Viergie assemblies are now public. Accessions have been added to the metadata file but the names have no been changed yet...
 
+###ADD BUSCO PHYLOGENY STEP
+
+
+
 ```
+
+
+#### Step 1: Validate species ID using a BUSCO-protein based phylogeny
+
+#### Step 2: FUnctionally annotate whole genomes
+
+#### Step 3: Generate <i>Starship</i> database using Starfish
+
+#### Step 4: Look for evidence of horizontal transfer within the entire Ascomycota subdivision Pezizomycotina
+
+#### Step 5: Generate phylogeny and alignments for all candidates of horizontal transfer
