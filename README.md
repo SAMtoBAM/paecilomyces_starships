@@ -79,22 +79,94 @@ rm -r paecilomyces_ncbi/
 ## all previously softmasked nucleotides have been made uppercase also ( awk '{if($0 ~ ">") {print $0} else {print toupper($0)}}' )
 
 ## currently have 79 Paecilomyces sp. genomes (removed 1 Monascus floridanus; incorrectly identified as Paecilomyces previously but too distant to be useful)
-## 29 from Viergie et al. and are not yet public
 ## 1 long-read assembly from Andrew and not yet public (replacing the short read assembly for the same strain)
 ## only 4 long-read assemblies in total (2 variotti, 1 dactylethromorphus, 1 formosus)
 
 ## UPDATE Dec 2024; all Viergie assemblies are now public. Accessions have been added to the metadata file but the names have no been changed yet...
+```
 
-###ADD BUSCO PHYLOGENY STEP
+
+#### Step 1: Functionally annotate whole genomes
+
+```
+###########################################################################
+######################### STEP 1: ANNOTATION ##############################
+###########################################################################
+#### In order to easily analyse Starship cargo we can annotate the entire genome of all assemblies present
+#### A submission script template has been generated to launch all annotation steps for each assembly individually within the 1.curation/1.raw/ folder
 
 
+## move into annotation folder
+cd /scratch/saodonnell/projects/${dataset}/annotation/
+## launching a single submit script do to all jobs for each assembly
+ls 1.curation/1.raw/ | grep fa$ | while read genome
+do
+genome2=$( echo $genome | awk -F "." '{print $1}'  )
+## move into submit scripts for submission so the report files are automatically placed here
+cd submit_scripts
+sed "s/XXXXX/${genome2}/g"  ../../ss.1.all_annotation.template.sh > ss.1.all_annotation.${genome2}.sh
+sbatch ss.1.all_annotation.${genome2}.sh
+cd ..
+## there are issues with running so many simultaneously
+sleep 30m
+done
+
+
+## sometimes there are issues with the cluster etc
+## check if they all finished and relunch those that didn't
+ls 1.curation/1.raw/ | grep fa.gz$ | while read genome
+do
+genome2=$( echo $genome | awk -F "." '{print $1}'  )
+if [ -f 3.annotate/3.gff3/${genome2}/${genome2}.gff3  ]
+then
+echo "${genome2} contains an annotated gff3, no worries"
+else
+echo "${genome2} needs to be re done (if it was done at all)"
+gunzip 1.curation/1.raw/${genome}
+echo "removing old filtered genome"
+rm 1.curation/2.sorted/${genome2}.sorted.fa.gz
+echo "removing old earlgrey output if present"
+if [ -d 1.curation/3.earlgrey/${genome2}.EarlGrey/  ]
+then
+rm -r 1.curation/3.earlgrey/${genome2}.EarlGrey/
+fi
+echo "removing old braker output if present"
+if [ -d 2.braker3/${genome2}/  ]
+then
+rm -r 2.braker3/${genome2}/
+fi
+echo "removing old funannotate output if present"
+if [ -d 3.annotate/3.gff3/${genome2}/  ]
+then
+rm -r 3.annotate/3.gff3/${genome2}/
+fi
+echo "rerunning ${genome2}"
+cd submit_scripts
+sed "s/XXXXX/${genome2}/g"  ../../ss.1.all_annotation.template.sh > ss.1.all_annotation.${genome2}.sh
+sbatch ss.1.all_annotation.${genome2}.sh
+cd ..
+## there are issues with running so many simultaneously
+sleep 30m
+fi
+done
+
+## compress assemblies
+gzip 1.curation/1.raw/*.fa
+gzip 1.curation/2.sorted/*.sorted.fa
+
+## now there a few output folders of interest
+## 	filtered and masked assembly = 1.curation/4.softmasked/*.softmasked.fa
+## 	gff3 = 3.annotate/3.gff3/${genome2}/${genome2}.gff3
+## 	proteins = 3.annotate/3.gff3/${genome2}/${genome2}.proteins.fa
+
+```
+
+#### Step 2: Validate genome completeness, annotation accuracy using BUSCOs and generate a phylogeny with single copy BUSCOs to validate species ID
 
 ```
 
 
-#### Step 1: Validate species ID using a BUSCO-protein based phylogeny
-
-#### Step 2: FUnctionally annotate whole genomes
+```
 
 #### Step 3: Generate <i>Starship</i> database using Starfish
 
