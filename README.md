@@ -1,7 +1,7 @@
 # paecilomyces_starships
-## Describing the Starship repertoire of the Paecilomyces genus using 79 (mostly public in 2024) genomes
+## Describing the Starship repertoire of the Paecilomyces genus using 79 (public as of 2025) genomes
 
-This reposistory is for the data analysis done for XXXXX et al. 20XX in order to describe all Paecilomyces Starships <br/>
+This reposistory is for the data analysis done for Urquhart et al. 2025 in order to describe all Paecilomyces Starships <br/>
 The dataset uses mostly public available genomes (at the moment) <br/>
 There are only a handful of other required inputs available in this repository <br/>
   1. A metadata file containing information on the set of genomes used AND those that were not used (and why) <br/>
@@ -12,7 +12,7 @@ However in this analysis we did not directly download all Paecilomyces genomes (
 Hence here we use the metadata file with a curated list
 
 Most computationally expensive steps were run on an HPC with the SLURM workload manager <br/>
-The scripts are provided in XXXXXX and indicated as to what they will perform
+The scripts are provided in submit_scripts and indicated as to what they will perform
 
 #### Step 0: Set up and download genomes
 Variables to manually set: <br/>
