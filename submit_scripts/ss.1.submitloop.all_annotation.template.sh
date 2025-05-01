@@ -19,7 +19,7 @@ dataset="paecilomyces"
 
 
 
-cd /scratch/saodonnell/projects/${dataset}/annotation/
+cd ${wrkdir}/annotation/
 ###launching a single submit script do to all jobs for each assembly
 ls 1.curation/1.raw/ | grep fa$ | while read genome
 do
