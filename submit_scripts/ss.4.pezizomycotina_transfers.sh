@@ -19,7 +19,8 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 dataset="paecilomyces"
-cd /scratch/saodonnell/projects/${dataset}/
+wrkdir="PATH/${dataset}"
+cd ${wrkdir}/
 
 
 #############################################################################################
@@ -82,7 +83,7 @@ gunzip -c pezizomycotina_ncbi.fa.gz | makeblastdb -in - -dbtype nucl -title pezi
 ## now search the database using starships
 ## first make a header for the output then search
 echo "query reference pident length mismatch gapopen qstart qend sstart send evalue bitscore" | tr ' ' '\t' > starships.pezizomycotina_ncbi.blastn.raw.tsv
-blastn -db pezizomycotina_ncbi -query /scratch/saodonnell/projects/${dataset}/starfish/elementFinder/paecilomyces_seq.elements.fna -outfmt 6 -num_threads ${threads} >> starships.pezizomycotina_ncbi.blastn.raw.tsv 
+blastn -db pezizomycotina_ncbi -query ${wrkdir}/starfish/elementFinder/paecilomyces_seq.elements.fna -outfmt 6 -num_threads ${threads} >> starships.pezizomycotina_ncbi.blastn.raw.tsv 
 
 ##basic filters to remove sequences and no aggregation
 minlength="10000"
