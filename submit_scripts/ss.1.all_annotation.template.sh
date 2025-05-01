@@ -19,7 +19,7 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 dataset="paecilomyces"
-cd /scratch/saodonnell/projects/${dataset}/annotation/
+cd ${wrkdir}/annotation/
 
 ##the genome accession/strain name given to the raw assembly and kept throughout as the name
 ##this will be automatically modified and saved as another submittable script
@@ -30,7 +30,7 @@ genome2=XXXXX
 #################### STEP 1: PREPPING GENOMES STEP ####################
 #######################################################################
 threads=32
-cd /scratch/saodonnell/projects/${dataset}/annotation/
+cd ${wrkdir}/annotation/
 
 conda activate funannotate
 funannotate sort -i 1.curation/1.raw/${genome2}.fa -o 1.curation/2.sorted/${genome2}.sorted.fa --minlen 1000
@@ -54,7 +54,7 @@ gzip 1.curation/1.raw/${genome2}.fa
 #################### STEP 2: EARLGREY REPEAT ANNOTATION AND MASKING ####################
 ########################################################################################
 threads=32
-cd /scratch/saodonnell/projects/${dataset}/annotation/
+cd ${wrkdir}/annotation/
 
 
 conda activate earlgrey
@@ -73,7 +73,7 @@ gzip 1.curation/2.sorted/${genome2}.sorted.fa
 ################################################################################
 ##set the thread number to be used (on the HPC we can use 64 easily)
 threads=32
-cd /scratch/saodonnell/projects/${dataset}/annotation/
+cd ${wrkdir}/annotation/
 
 ##add path to compleasm kit
 export PATH=$PATH:/home/saodonnell/compleasm_kit
@@ -110,7 +110,7 @@ rm -r 2.braker3/${genome2}/bbc
 #################### STEP 4: FUNANNOTATE FUNCTIONAL ANNOTATION ####################
 ###################################################################################
 threads=32
-cd /scratch/saodonnell/projects/${dataset}/annotation/
+cd ${wrkdir}/annotation/
 ##reduce thread count for interproscan
 threads2=$( echo $threads | awk '{print $0/8}' | awk -F "." '{print $1}' )
 ##export funannotate db path
