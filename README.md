@@ -16,8 +16,8 @@ The scripts are provided in submit_scripts and indicated as to what they will pe
 
 #### Step 0: Set up and download genomes
 Variables to manually set: <br/>
-  $wrkdir = where all files and directories etc will be created; an absolute path is best especially when dealing with many HPC configurations
-  $dataset = a prefix for the output (here set as 'paecilomyces')
+  $wrkdir = where all files and directories etc will be created; an absolute path is best especially when dealing with many HPC configurations (change in all submit files)
+  $dataset = a prefix for the output (here set as 'paecilomyces') (change in all submit files)
 ```
 ######################################################################
 ######################### STEP 0: SETUP ##############################
