@@ -18,7 +18,7 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 dataset="paecilomyces"
-cd /scratch/saodonnell/projects/${dataset}/annotation/
+cd ${wrkdir}/annotation/
 
 ##the genome accession/strain name given to the raw assembly and kept throughout as the name
 ##this will be automatically modified and saved as another submittable script
@@ -28,7 +28,7 @@ genome2=XXXXX
 #################### STEP 1: Checking BUSCO completeness of the resulting predicted genes ####################
 ##############################################################################################################
 threads=16
-cd /scratch/saodonnell/projects/${dataset}/annotation/
+cd ${wrkdir}/annotation/
 
 ##because we have no real truth dataset it is hard to evaluate the annotations
 ##one way is we can just see if the BUSCOs, found in the genome are also found in the annotations
