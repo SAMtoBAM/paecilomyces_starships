@@ -18,6 +18,7 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 dataset="paecilomyces"
+wrkdir="PATH/${dataset}"
 cd ${wrkdir}/annotation/
 
 ##the genome accession/strain name given to the raw assembly and kept throughout as the name
