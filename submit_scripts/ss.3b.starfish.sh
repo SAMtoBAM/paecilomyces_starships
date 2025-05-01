@@ -19,7 +19,8 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 dataset="paecilomyces"
-cd /scratch/saodonnell/projects/${dataset}/
+wrkdir="PATH/${dataset}"
+cd ${wrkdir}/
 
 ##set up some paths
 #export PATH=$PATH:~/starfish/bin/
