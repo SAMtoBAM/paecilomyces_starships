@@ -154,6 +154,50 @@ done
 gzip 1.curation/1.raw/*.fa
 gzip 1.curation/2.sorted/*.sorted.fa
 
+
+#### RENAMING THE PUBLIC ASSEMBLIES USING THEIR PUBLIC ACCESSION FOR THE CONTIGS ####
+
+##rename all the contigs to their original public accession naming using the ragtag scaffolding tool
+##only applied to the public assemblies
+##the old/ not-renamed are put into a newly named file whilst the renamed are left with the normal name for the file (like the others that were not renamed)
+##install seqkit in conda env
+conda activate general
+cd /scratch/saodonnell/projects/${dataset}/annotation/
+mkdir 4.renaming
+##first identify the genomes of interest for performing this
+ls 1.curation/1.raw/ | grep .fa.gz$ | grep ^GCA | while read genome
+do
+genome2=$( echo $genome | awk -F "." '{print $1}')
+gunzip 1.curation/1.raw/${genome}
+## create new files which will be progressively renamed
+cp 3.annotate/3.gff3/${genome2}/${genome2}.gff3 3.annotate/3.gff3/${genome2}/${genome2}.accession_not_renamed.gff3
+cp 1.curation/4.softmasked/${genome2}.softmasked.fa 3.annotate/3.gff3/${genome2}/${genome2}.softmasked.fa
+cp 3.annotate/3.gff3/${genome2}/${genome2}.softmasked.fa 3.annotate/3.gff3/${genome2}/${genome2}.softmasked.accession_not_renamed.fa
+## now sort these genomes similarly, get the list of contig names in that order then lines up the two lists and make the swap
+mkdir ${genome2}.naming
+seqkit sort 1.curation/1.raw/${genome2}.fa -s -i | seqkit sort - -b | seqkit sort - -l -r | grep '>' > ${genome2}.naming/list1.txt
+seqkit sort 1.curation/4.softmasked/${genome2}.softmasked.fa -s -i | seqkit sort - -b | seqkit sort - -l -r | grep '>' > ${genome2}.naming/list2.txt
+paste ${genome2}.naming/list*.txt -d "\t" > ${genome2}.naming/list.comb.txt
+cat ${genome2}.naming/list.comb.txt | while read list
+do
+accession=$( echo "${list}" | awk -F "\t" '{print $1}' | awk -F " " '{print $1}' | sed 's/>//g' )
+current=$( echo "${list}" | awk -F "\t" '{print $2}' | sed 's/>//g' )
+sed -i "s/^${current}\t/${accession}\t/g" 3.annotate/3.gff3/${genome2}/${genome2}.gff3
+sed -i "s/^>${current}$/>${accession}/g" 3.annotate/3.gff3/${genome2}/${genome2}.softmasked.fa
+done
+#rm -r ${genome2}.naming
+gzip 1.curation/1.raw/${genome2}.fa
+done
+
+##place a copy of the softmasked genome for the other assemblies in the annotation folder too
+ls 1.curation/1.raw/ | grep .fa.gz$ | grep -v ^GCA | while read genome
+do
+genome2=$( echo $genome | awk -F "." '{print $1}')
+cp 1.curation/4.softmasked/${genome2}.softmasked.fa 3.annotate/3.gff3/${genome2}/${genome2}.softmasked.fa
+done
+
+mv *.naming 4.renaming
+
 ## now there a few output folders of interest
 ## 	filtered and masked assembly = 1.curation/4.softmasked/*.softmasked.fa
 ## 	gff3 = 3.annotate/3.gff3/${genome2}/${genome2}.gff3
