@@ -164,6 +164,31 @@ gzip 1.curation/2.sorted/*.sorted.fa
 #### Step 2: Validate genome completeness, annotation accuracy using BUSCOs and generate a phylogeny with single copy BUSCOs to validate species ID
 
 ```
+############################################################################
+######################### STEP 2: BUSCO CHECK ##############################
+############################################################################
+#### We can use BUSCO to check the completeness of the assemblies and the annotated proteins side by side
+#### A submission script template has been generated to launch each assembly and annotated protein dataset individually
+
+## move into annotation folder
+cd /scratch/saodonnell/projects/${dataset}/annotation/
+## first create a header for the summary file, then launch the BUSCO analyses
+echo "genome;dataset;total_BUSCOs;complete;complete_proportion;fragmented;fragmented_proportion;missing;missing_proportion" | tr ';' '\t' > 3.annotate/3.gff3/BUSCO_results.tsv
+
+## launching a single submit script do to all jobs for each assembly
+ls 1.curation/1.raw/ | grep fa.gz$ | while read genome
+do
+genome2=$( echo $genome | awk -F "." '{print $1}'  )
+## move into submit scripts for submission so the report files are automatically placed here
+cd submit_scripts
+sed "s/XXXXX/${genome2}/g"  ../../ss.2.BUSCO_check.template.sh > ss.2.BUSCO_check.${genome2}.sh
+sbatch ss.2.BUSCO_check.${genome2}.sh
+cd ..
+done
+
+## the output file 3.annotate/3.gff3/BUSCO_results.tsv contains a combination of the BUSCO results from the raw assembly, the filtered assembly and the proteins
+## there should be no large loss of BUSCO score after the filtering and in the annotated proteins
+## in fact in most cases the annotated proteins usually have equal or better BUSCO scores
 
 
 ```
