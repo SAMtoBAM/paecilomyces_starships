@@ -16,6 +16,7 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 dataset="paecilomyces"
+wrkdir="PATH/${dataset}"
 
 
 
