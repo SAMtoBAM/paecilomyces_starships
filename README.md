@@ -27,7 +27,8 @@ Variables to manually set: <br/>
 
 ## move to the working directory already created
 dataset="paecilomyces"
-wrkdir="/scratch/saodonnell/projects/${dataset}/"
+wrkdir="/PATH/${dataset}/"
+mkdir $wrkdir
 cd $wrkdir
 
 ## create the directory structure for analysis and annotation
@@ -97,7 +98,7 @@ rm -r paecilomyces_ncbi/
 
 
 ## move into annotation folder
-cd /scratch/saodonnell/projects/${dataset}/annotation/
+cd ${wrkdir}/annotation/
 ## launching a single submit script do to all jobs for each assembly
 ls 1.curation/1.raw/ | grep fa$ | while read genome
 do
@@ -162,7 +163,7 @@ gzip 1.curation/2.sorted/*.sorted.fa
 ##the old/ not-renamed are put into a newly named file whilst the renamed are left with the normal name for the file (like the others that were not renamed)
 ##install seqkit in conda env
 conda activate general
-cd /scratch/saodonnell/projects/${dataset}/annotation/
+cd ${wrkdir}/annotation/
 mkdir 4.renaming
 ##first identify the genomes of interest for performing this
 ls 1.curation/1.raw/ | grep .fa.gz$ | grep ^GCA | while read genome
@@ -199,9 +200,9 @@ done
 mv *.naming 4.renaming
 
 ## now there a few output folders of interest
-## 	filtered and masked assembly = 1.curation/4.softmasked/*.softmasked.fa
-## 	gff3 = 3.annotate/3.gff3/${genome2}/${genome2}.gff3
-## 	proteins = 3.annotate/3.gff3/${genome2}/${genome2}.proteins.fa
+## 	filtered and masked assembly = ${wrkdir}/annotation/1.curation/4.softmasked/*.softmasked.fa
+## 	gff3 = ${wrkdir}/annotation/3.annotate/3.gff3/${genome2}/${genome2}.gff3
+## 	proteins = ${wrkdir}/annotation/3.annotate/3.gff3/${genome2}/${genome2}.proteins.fa
 
 ```
 
@@ -215,7 +216,7 @@ mv *.naming 4.renaming
 #### A submission script template has been generated to launch each assembly and annotated protein dataset individually
 
 ## move into annotation folder
-cd /scratch/saodonnell/projects/${dataset}/annotation/
+cd ${wrkdir}/annotation/
 ## first create a header for the summary file, then launch the BUSCO analyses
 echo "genome;dataset;total_BUSCOs;complete;complete_proportion;fragmented;fragmented_proportion;missing;missing_proportion" | tr ';' '\t' > 3.annotate/3.gff3/BUSCO_results.tsv
 
@@ -239,6 +240,196 @@ done
 
 #### Step 3: Generate <i>Starship</i> database using Starfish
 
+```
+###################################################################################
+######################### STEP 3: STARSHIP DISCOVERY ##############################
+###################################################################################
+#### Using Starfish we can take our newly annotated genomes and look for Starships using all genomes simultneously
+#### A submission script is already generate for running all the steps required for Starfish
+
+## install starfish first
+## downloaded starfish, provides databases and some auxillary tools (all directed in the github)
+#cd ~
+#git clone https://github.com/egluckthaler/starfish.git
+
+## created as below using the conda env (as on the wiki)
+#conda config --add channels bioconda
+#conda config --add channels conda-forge
+#conda config --set channel_priority strict
+#mamba create -c egluckthaler -n starfish python=3.8 starfish
+## create an R and gggenome env (needed for later visualiations)
+#mamba create -c conda-forge -n R_env r-base r-gggenomes r-svglite
+
+## move into the project folder
+cd ${wrkdir}/
+## make a directory for the Starfish analysis output
+mkdir starfish
+
+##some paths for directing scripts to tools
+#export PATH=$PATH:~/starfish/bin/
+#export PATH=$PATH:~/starfish/CNEFinder
+
+############################# STEP 3a: generating orthogroups ###################################
+
+cd ${wrkdir}/starfish
+### get the orthogroups that will then be used to look at alignments between genomes and detail multiple insertion sites of a single starship
+##first create an environment
+#mamba create -n orthofinder -c bioconda -c conda-forge orthofinder
+#conda activate orthofinder
+##copy the protein files and just rename them ${assembly}.faa (orthofinder will take everything before the suffix tag as the name so can't leave 'proteins' in the file name)
+##add the genome name to the beginning of the protein name tags e.g. >GCAXXXXXXXX_g1234.t1 (used downstream to know which genome it has come from)
+mkdir proteome
+ls ${wrkdir}/annotation/3.annotate/3.gff3/*/*.proteins.fa | while read file
+do
+genome2=$( echo $file | awk -F "/" '{print $NF}' | awk -F "." '{print $1}' )
+cat $file | sed "s/>/>${genome2}_/g" > proteome/${genome2}.faa
+done
+
+mkdir transcriptome
+ls ${wrkdir}/annotation/3.annotate/3.gff3/*/*.cds-transcripts.fa | while read file
+do
+genome2=$( echo $file | awk -F "/" '{print $NF}' | awk -F "." '{print $1}' )
+cat $file | sed "s/>/>${genome2}_/g" > transcriptome/${genome2}.fa
+done
+
+##run orthofinder
+#mkdir orthofinder
+#cd orthofinder
+#conda activate orthofinder
+#orthofinder -f ../proteome/ -t ${threads} 
+#mv ../proteome/OrthoFinder/ orthofinder/orthofinder_results/
+
+## use the submit file as this takes awhile
+sbatch ss.3a.orthofinder.sh
+
+###use a species tree or not????
+
+## the orthofinder results are now in the directory ${wrkdir}/starfish/orthofinder/orthofinder_results/Results_*/
+## the wildcard being the date it was run (hopefully there is just one run)
+
+
+############################ STEP: 3b: finding the Starships ############################
+
+## starfish will be run on all genomes simultaneously therefore we just need to submit a single script
+## this script, as opposed to others. sequentially identifies starship insertions using closely related genomes then more distant genomes
+## this is done by reducing the percent identity minimum for alignments in a second round, running on the output of the first
+## by doing this all candidate starships from the first round are kept, and those without a candidate insertion site are searched again using the reduced identity min
+sbatch ss.3b.starfish.sh
+
+######### manual annotation ############
+
+## once this script has finished there will be candidate starships to manually label as good, mid or poor candidates, based on the visulisation
+##first produce a summary file containing a few features of interest
+##this summary file will contain a column to be filled out that will then be used to automate the filtering for the final dataset
+##columns of interest for a candidate starship are those in the elementFinder/*_seq.elements.named.stats and elementFinder/*_seq.elements.feat; plus the species names
+## starship_id = name given to the starship candidate
+## starship_family = family classification of the starship based on the captain
+## starship_navisHap = the navis classification of the starship based on the captain similarity and its haplotype based on kmer similarity of the entire region
+## species = as previously identified
+## strain = all strain names known for the strain combined, split by ";"
+## genome = the public accession if present otherwise NA
+## assemblyid = the name used for this assembly in the analysis (can be strain or public accession if not yet public)
+## contig:start-end = coordinates for the starship
+## step_identified = whether 1st or sequential/2nd step (gives an idea of how it was found)
+## nested_inside = the ID of a starship that this starship is said to be nested inside
+## nested_contained = the ID of a starship said to be nested within this starship
+## manual_classification = classify as either good; mid or poor by looking at the alignments
+## manual_notes = notes about the classfication if necessary, perhaps why one that looks iffy by alignment is classified as good eventually
+echo "starship_id;starship_family;starship_navisHap;species;strain;genome;assemblyid;contig;start;end;length;strand;boundary;emptysite_species;emptysite_strain;emptysite_contig;emptysite_start;emptysite_end;captain_id;captain_start;captain_end;nested_inside_id;nested_contained_id;step_identified;manual_classification;manual_notes" | tr ';' '\t' > ${dataset}.starships.summary.manual_mod.tsv
+tail -n+2 elementFinder/${dataset}_seq.elements.ann.feat | awk '{print $1"\t"$2"\t"$3"\tXX\tXX\tXX\tXX\t"$4"\t"$6"\t"$7"\t"$8"\t"$9"\t"$10"\tXX\tXX\t"$12"\t"$13"\t"$14"\t"$5"\tXX\tXX\t"$22"\t"$23"\tXX\tXX\tXX"}' | while read line
+do
+
+## data on the strain/species
+starship=$( echo "${line}" | awk -F "\t" '{print $1}' )
+assemblyid=$( echo $starship | awk -F "_" '{print $1}' )
+species=$( cat ../metadata.tsv | awk -F "\t" -v assemblyid="$assemblyid" '{if($6 == assemblyid) print $7}' | awk -F "_" '{print $2}'  )
+strain=$( cat ../metadata.tsv | awk -F "\t" -v assemblyid="$assemblyid" '{if($6 == assemblyid) print $3";"$4";"$5"XXXXX"}' | sed 's/;;XXXXX//g' | sed 's/;XXXXX//g' | sed 's/;;/;/g' | sed 's/XXXXX//g'   )
+genome=$( cat ../metadata.tsv | awk -F "\t" -v assemblyid="$assemblyid" '{if($6 == assemblyid) print $1}' )
+
+##the same data for the genome compared against to identify the insertion (if present)
+altassemblyid=$( echo "${line}" | awk -F "\t" '{print $16}' | awk -F "_" '{print $1}' )
+altspecies=$( cat ../metadata.tsv | awk -F "\t" -v altassemblyid="$altassemblyid" '{if($6 == altassemblyid) print $7}' | awk -F "_" '{print $2}'  )
+if [ "${altspecies}" == "" ]
+then
+altspecies="."
+altstrain="."
+else
+altstrain=$( cat ../metadata.tsv | awk -F "\t" -v altassemblyid="$altassemblyid" '{if($6 == altassemblyid) print $3";"$4";"$5"XXXXX"}' | sed 's/;;XXXXX//g' | sed 's/;XXXXX//g' | sed 's/;;/;/g' | sed 's/XXXXX//g'  )
+fi
+
+##captain position
+captainid=$( echo "${line}" | awk -F "\t" '{print $19}' )
+captainstart=$( grep ${captainid} ${dataset}.filt_intersect.consolidated.gff | awk -F "\t" '{print $4}' )
+captainend=$( grep ${captainid} ${dataset}.filt_intersect.consolidated.gff | awk -F "\t" '{print $5}' )
+
+##which step this starship was found (can just see if it is present in just the initial ID files or both the initial and sequentially added)
+step=$( tail -n+2 elementFinder/${dataset}.elements.feat elementFinder/${dataset}_seq.elements.feat | awk -v starship="$starship" '{if($2 == starship) print}' | wc -l | awk '{if($0 == "1") {print "step2"} else if($0 == "2"){print "step1"}}' )
+
+echo "${line}" | awk -v species="$species" -v strain="$strain" -v genome="$genome" -v assemblyid="$assemblyid" -v altspecies="$altspecies" -v altstrain="$altstrain" -v captainstart="$captainstart" -v captainend="$captainend" -v step="$step" -F "\t" '{print $1"\t"$2"\t"$3"\t"species"\t"strain"\t"genome"\t"assemblyid"\t"$8"\t"$9"\t"$10"\t"$11"\t"$12"\t"$13"\t"altspecies"\t"altstrain"\t"$16"\t"$17"\t"$18"\t"$19"\t"captainstart"\t"captainend"\t"$22"\t"$23"\t"step"\t\t"}' >> ${dataset}.starships.summary.manual_mod.tsv
+done 
+
+
+###### now the candidates need to be manually validated by inspecting the visualisation
+## starships will be sorted into three groups
+## easy candidates, when the insertion in clear
+## on the fence, when it is not absolitely clear
+## poor candidates, when the alignment is bad/ clearly a bad candidate (label as "poor")
+## first use the pairViz_seq
+
+
+##after certain starships have been labelled as poor (i.e. keep all others) then we can generate a matrix of presence/absence PER HAPLOTYPE per genome
+cat ${dataset}.starships.summary.manual_mod.tsv | awk -F "\t" '{if($25 !~ "poor") print}'  > ${dataset}.starships.summary.manual_mod.good_only.tsv
+
+##now get a list of all genomes then add sequentially each haplotype labelling presence if so
+##the order of the haplotyes should be by family-navis-hap so they are clustered in the plot (if the order keeps)
+#list of haplotypes/starships tail -n+2 ${dataset}.starships.summary.manual_mod.good_only.tsv | cut -f2,3 | sort -u
+##create header to add to the matrix
+tail -n+2 ${dataset}.starships.summary.manual_mod.good_only.tsv | cut -f2,3 | sort -u | awk '{print $1"-"$2}' | tr '\n' '\t' | tr ' ' '-' | awk '{print "genome\t"$0}' | sed 's/	$//g'  > ${dataset}.starships.summary.manual_mod.good_only.per_genome_matrix.tsv
+ls assemblies/ | awk -F "." '{print $1}' | while read genome
+do
+##get species (need it to add the the row in order to connect it with the phylogeny tips) (needs to be 'P' instead of Paecilomyces and no gap e.g. Pvariotii)
+species=$( cat ../metadata.tsv | awk -F "\t" -v genome="$genome" '{if($6 == genome) print $7}' | sed 's/aecilomyces_//g' )
+strip=$( echo "${species}_${genome}" )
+count=$( tail -n+2 ${dataset}.starships.summary.manual_mod.good_only.tsv | cut -f2,3 | sort -u | awk '{print $1"-"$2}' | wc -l )
+tail -n+2 ${dataset}.starships.summary.manual_mod.good_only.tsv | cut -f2,3 | sort -u | awk '{print $1"-"$2}' | while read haplotype
+do
+((counter++))
+presence=$( cat ${dataset}.starships.summary.manual_mod.good_only.tsv | awk -F "\t" -v haplotype="$haplotype" -v genome="$genome" 'BEGIN{hold="not_found"} {if(($2"-"$3) == haplotype && $7 == genome) {hold="found"}} END{if(hold=="found") {print "present"} else {print "NA"}}' )
+strip=$( echo "${strip};${presence}" )
+if [[ ${count} == ${counter} ]]
+then
+	echo ${strip} | tr ';' '\t' >> ${dataset}.starships.summary.manual_mod.good_only.per_genome_matrix.tsv
+fi
+done
+done
+
+
+##a simple summary file giving the number of filtered captains identified per strain and the number of good elements
+echo "genome;captains;starships;ratio" | tr ';' '\t' > ${dataset}.starships.summary.manual_mod.good_only.starships_vs_captains.summary.tsv
+cat ../metadata.tsv | awk -F "\t" '{if($9 == "yes" )print $6}'  | while read genome
+do
+species=$( cat ../metadata.tsv | awk -F "\t" -v genome="$genome" '{if($6 == genome) print $7}' | sed 's/Paecilomyces_/P/g' )
+captains=$( cat geneFinder/${dataset}.filt.gff | grep "${genome}_" | wc -l )
+starships=$( cat ${dataset}.starships.summary.manual_mod.good_only.tsv | grep ^"${genome}_" | wc -l )
+echo "${species}_${genome};${captains};${starships}" | tr ';' '\t' | awk '{if($2 > 0) {print $0"\t"$3/$2} else {print $0"\t0"}}'
+done >> ${dataset}.starships.summary.manual_mod.good_only.starships_vs_captains.summary.tsv
+
+
+##extract only the good sequences from the set of all given by starfish
+##can just use grep -A1 as the elements are on a single line and the naming is non-redundant in text so there is no overlap (so useful)
+cat ${dataset}.starships.summary.manual_mod.good_only.tsv | cut -f1 | while read starship; do grep -A1 "${starship}" elementFinder/${dataset}_seq.elements.fna; done | sed 's/|[+-]//g' >> ${dataset}.starships.summary.manual_mod.good_only.fa
+
+```
+
 #### Step 4: Look for evidence of horizontal transfer within the entire Ascomycota subdivision Pezizomycotina
 
+```
+
+```
+
 #### Step 5: Generate phylogeny and alignments for all candidates of horizontal transfer
+
+```
+
+```
+
