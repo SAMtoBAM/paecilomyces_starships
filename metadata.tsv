@@ -1,84 +1,80 @@
-genome_accession,biosample,strain,strain2,strain3,genome,species,SR_LR,presence_in_dataset,annotation,STARSHIPDATA,reference,isolation_locations,isolation_enviconment,notes,notes_naming,,,
-GCA_002242795,SAMN07234396,BYSS01,,,GCA002242795,Monascus floridanus,SR,no,NA,,published in: Whole-genome sequencing and analysis of Paecilomyces variotii MTDF-01 from Moutai-flavor liquor brewing process [paper in chinese],NA,NA,Too distant; removed,Submitted name is Byssochlamys_sp,,,
-GCA_043884365; NEW,SAMN40250940,CMW18183,,CMW-IA-005752,CMW18183,Paecilomyces_brunneolus,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole,,,,,
-GCA_043882565; NEW,SAMN40250926,CMW18161,CBS118903,CMW-IA-005736,CMW18161,Paecilomyces_dactylethromorphus,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043882455; NEW,SAMN40250927,CMW18162,CBS124448,CMW-IA-005737,CMW18162,Paecilomyces_dactylethromorphus,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043882485; NEW,SAMN40250928,CMW18163,CBS124331,CMW-IA-005738,CMW18163,Paecilomyces_dactylethromorphus,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_002914405,SAMN08235907,AF001,,,GCA002914405,Paecilomyces_dactylethromorphus,LR,yes,yes,,?,USA,Biofilm in oil tank,,Submitted name is Byssochlamys_sp,,,
-GCA_029606265,SAMN32135774,FRR5262,,,GCA029606265,Paecilomyces_dactylethromorphus,SR,yes,yes,,Urquhart.et al.2023b(https://doi.org/10.3390/jof9030285),Australia,Jet fuel,,,,,
-GCA_029606295,SAMN32135773,FRR0699,FRR699,,GCA029606295,Paecilomyces_dactylethromorphus,SR,yes,yes,,Urquhart.et al.2023b(https://doi.org/10.3390/jof9030285),Australia,moldy stored sorghum,,,,,
-GCA_000497085,SAMD00036776,no5,,,GCA000497085,Paecilomyces_formosus,SR,yes,yes,,?,Japan,soil,,,,,
-GCA_015266405,SAMN16178742,WS011,,,GCA015266405,Paecilomyces_formosus,LR,yes,yes,,?,China,Asian citrus psyllid (Diaphorina citri),,Submitted name is variotti,,,
-GCA_029606185,SAMN32135777,FRR3793,,,GCA029606185,Paecilomyces_formosus,SR,yes,yes,,Urquhart.et al.2023b(https://doi.org/10.3390/jof9030285),Australia,Beer,,Submitted name is maximus,,,
-GCA_029606305,SAMN32135772,FRR3794,,,GCA029606305,Paecilomyces_fulvus,SR,yes,yes,,Urquhart.et al.2023b(https://doi.org/10.3390/jof9030285),Australia,Beer,,,,,
-GCA_018167545,,mccf102,,,GCA018167545,Paecilomyces_lecythidis,,yes,yes,,?,?,?,NOT AVAILABLE ON NCBI,,,,
-GCA_043882515; NEW,SAMN40250924,CMW18165,CBS124304,CMW-IA-004822,CMW18165,Paecilomyces_lecythidis,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Pinus),,,,,
-GCA_043882585; NEW,SAMN40250922,CMW18166,CBS124305,CMW-IA-005020,CMW18166,Paecilomyces_lecythidis,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-PUBLIC;seenote,SAMN36999128,CMW18167,CBS124330,CMW-IA-000550,CMW18167,Paecilomyces_lecythidis,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),"DUPLICATED; same strain assembled and assembly made public for another study; but the two assemblies are different, may be the same raw data assembled twice or sequenced twice",,,,
-GCA_043882685; NEW,SAMN40250922,CMW18169,CBS118899,CMW-IA-000560,CMW18169,Paecilomyces_lecythidis,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Pinus),,,,,
-PUBLIC;seenote,SAMN36999129,CMW18170,CBS118897,CMW-IA-005739,CMW18170,Paecilomyces_lecythidis,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),"DUPLICATED; same strain assembled and assembly made public for another study; but the two assemblies are different, may be the same raw data assembled twice or sequenced twice",,,,
-GCA_003123655,SAMN08905905,COH1141,,,GCA003123655,Paecilomyces_lecythidis,SR,yes,yes,,?,USA,Jet propulsion lab contaminant,,,,,
-GCA_029606225,SAMN32135776,FRR4481,,,GCA029606225,Paecilomyces_lecythidis,SR,yes,yes,,Urquhart.et al.2023b(https://doi.org/10.3390/jof9030285),Unknown,Unknown,,,,,
-GCA_029606255,SAMN32135775,FRR3797,,,GCA029606255,Paecilomyces_lecythidis,SR,yes,yes,,Urquhart.et al.2023b(https://doi.org/10.3390/jof9030285),Australia,Cardboard,,,,,
-GCA_037041775,SAMN38095064,R5904B,,,GCA037041775,Paecilomyces_lecythidis,SR,yes,yes,,?,China,human feces,,,,,
-GCA_042257975,SAMN36999129,CMW18170,CBS118897,CMW-IA-005739,GCA042257975,Paecilomyces_lecythidis,SR,yes,yes,,?,South Africa,Wooden utility pole (Eucalyptus),DUPLICATED,,,,
-GCA_042258045,SAMN36999128,CMW18167,CBS124330,CMW-IA-000550,GCA042258045,Paecilomyces_lecythidis,SR,yes,yes,,?,South Africa,Wooden utility pole (Eucalyptus),DUPLICATED,,,,
-GCA_043882365; NEW,SAMN40250929,CMW18171,,CMW-IA-005740,CMW18171,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884725; NEW,SAMN40250930,CMW18172,,CMW-IA-005741,CMW18172,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043882395; NEW,SAMN40250931,CMW18174,,CMW-IA-005743,CMW18174,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043882265; NEW,SAMN40250932,CMW18175,CBS124306,CMW-IA-005744,CMW18175,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884655; NEW,SAMN40250933,CMW18176,CBS124307,CMW-IA-005745,CMW18176,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884645; NEW,SAMN40250934,CMW18177,CBS124308,CMW-IA-005746,CMW18177,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884545; NEW,SAMN40250935,CMW18178,,CMW-IA-005747,CMW18178,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884455; NEW,SAMN40250936,CMW18179,,CMW-IA-005748,CMW18179,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884465; NEW,SAMN40250937,CMW18180,CBS124309,CMW-IA-005749,CMW18180,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884505; NEW,SAMN40250938,CMW18181,CBS124310,CMW-IA-005750,CMW18181,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884375; NEW,SAMN40250939,CMW18182,,CMW-IA-005751,CMW18182,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884265; NEW,SAMN40250941,CMW18184,,CMW-IA-005753,CMW18184,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884225; NEW,SAMN40250942,CMW18185,,CMW-IA-005754,CMW18185,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884255; NEW,SAMN40250943,CMW18186,,CMW-IA-005755,CMW18186,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884295; NEW,SAMN40250944,CMW18187,,CMW-IA-005756,CMW18187,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_043884025; NEW,SAMN40250946,CMW18190,,CMW-IA-005758,CMW18190,Paecilomyces_lignorum,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Eucalyptus),,,,,
-GCA_029606195,SAMN32135779,FRR2337,,,GCA029606195,Paecilomyces_maximus,SR,yes,yes,,Urquhart.et al.2023b(https://doi.org/10.3390/jof9030285),Australia,Human lung,,,,,
-GCA_029606205,SAMN32135780,FRR4140,,,GCA029606205,Paecilomyces_maximus,SR,yes,yes,,Urquhart.et al.2023b(https://doi.org/10.3390/jof9030285),Australia,Human eye,,,,,
-GCA_029606215,SAMN32135778,FRR4742,,,GCA029606215,Paecilomyces_maximus,SR,yes,yes,,Urquhart.et al.2023b(https://doi.org/10.3390/jof9030285),Australia,Strawberry puree,,,,,
-GCA_003116535,SAMN08996309,no7,,,GCA003116535,Paecilomyces_niveus,SR,yes,yes,,?,USA,decaying apple,,,,,
-GCA_043884075; NEW,SAMN40250945,CMW18188,CBS118829,CMW-IA-005757,CMW18188,Paecilomyces_paravariotii,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Pinus),,,,,
-GCA_043882735; NEW,SAMN40250921,CMW18189,CBS118904,CMW-IA-000553,CMW18189,Paecilomyces_paravariotii,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole (Pinus),,,,,
-GCA_043884065; NEW,SAMN40250947,CMW18191,,CMW-IA-005759,CMW18191,Paecilomyces_paravariotii,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole,,,,,
-GCA_043884055; NEW,SAMN40250948,CMW18192,,CMW-IA-005760,CMW18192,Paecilomyces_paravariotii,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole,,,,,
-GCA_043884185; NEW,SAMN40250949,CMW18193,,CMW-IA-005761,CMW18193,Paecilomyces_paravariotii,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),South Africa,Wooden utility pole,,,,,
-GCA_029606115,SAMN13951817,FRR5287,,,GCA029606115,Paecilomyces_paravariotii,SR,yes,yes,,Urquhart.et al.2023a(https://doi.org/10.1073/pnas.2214521120),Unknown,Leather,,Submitted name is variotti,,,
-GCA_030061565,SAMN33858514,DTO271G3,,,GCA030061565,Paecilomyces_paravariotii,SR,yes,yes,,?,South Africa,Ice tea,,Submitted name is variotti,,,
-NA,NA,CBS144490,,,CBS144490,Paecilomyces_variotii,LR,yes,yes,,Unpublished(new assembly to be published in this study),Australia,Culture contaminant,LR version of CBS144490,,,,
-GCA_004015385,SAMN10250138,CBS144490,,,NA,Paecilomyces_variotii,SR,no,NA,,Urquhart.etal.2018(https://doi.org/10.3389/fmicb.2018.03058),Australia,Culture contaminant,SR version of CBS144490 replaced by LR version,,,,
-GCA_043882635; NEW,SAMN40250923,CMW60399,,CMW-IA-001075,CMW60399,Paecilomyces_variotii,SR,yes,yes,,Visagie.etal.2024(https://doi.org/10.3114/fuse.2024.13.10),Canada,House dust,,,,,
-GCA_001931875,SAMN06076682,IMV00236,,,GCA001931875,Paecilomyces_variotii,SR,??,??,,?,Ukraine,"wall surface, Unit-4, Chernobyl Nuclear Power Plant","Removed due to heavy contamination by Rhizopus sp., explains the much larger genome size and why the BSUCO filter did not pick it up (i.e. rhizopus isn’t in the eurotiales which is the busco lineage used)",Submitted name is Byssochlamys_sp,,,MIGHT JUST FILTER FOR RHIZOPUS CONTAMINATION
-GCA_003990805,SAMN10127184,MTDF-01,,,GCA003990805,Paecilomyces_variotii,SR,yes,yes,,?,China,daqu,SR data but somehow VERY contiguous,,,,
-GCA_004022145,SAMN08778357,CBS101075,FRR5219,,GCA004022145,Paecilomyces_variotii,LR,yes,yes,,Urquhart.et.al. 2018(https://doi.org/10.3389/fmicb.2018.03058),Japan,heat processed fruit beverage,,,,,
-GCA_029606105,SAMN13951814,FRR1658,,,GCA029606105,Paecilomyces_variotii,SR,yes,yes,,Urquhart.et al.2023a(https://doi.org/10.1073/pnas.2214521120),Unknown,Leather,,,,,
-GCA_029606125,SAMN13951815,FRR2889,,,GCA029606125,Paecilomyces_variotii,SR,yes,yes,,Urquhart.et al.2023a(https://doi.org/10.1073/pnas.2214521120),Unknown,Leather,,,,,
-GCA_029606135,SAMN13951816,FRR3823,,,GCA029606135,Paecilomyces_variotii,SR,yes,yes,,Urquhart.et al.2023a(https://doi.org/10.1073/pnas.2214521120),Unknown,Leather,,,,,
-GCA_030060675,SAMN33858503,DTO166G4,,,GCA030060675,Paecilomyces_variotii,SR,yes,yes,,?,Netherlands,heat treated pectin,,,,,
-GCA_030060685,SAMN33858502,DTO164E3,,,GCA030060685,Paecilomyces_variotii,SR,yes,yes,,?,Netherlands,Blue berry ingredients,,,,,
-GCA_030060715,SAMN33858501,DTO032I3,,,GCA030060715,Paecilomyces_variotii,SR,yes,yes,,?,USA,High fructose corn syrup after heat shock,,,,,
-GCA_030060985,SAMN33858508,DTO207G8,,,GCA030060985,Paecilomyces_variotii,SR,yes,yes,,?,Netherlands,"Fruit, ingredient",,,,,
-GCA_030060995,SAMN33858504,DTO166G5,,,GCA030060995,Paecilomyces_variotii,SR,yes,yes,,?,Netherlands,heat treated pectin,,,,,
-GCA_030061005,SAMN33858506,DTO169E5,,,GCA030061005,Paecilomyces_variotii,SR,yes,yes,,?,Netherlands,Indoor environment,,,,,
-GCA_030061015,SAMN33858505,DTO169C6,,,GCA030061015,Paecilomyces_variotii,SR,yes,yes,,?,Netherlands,Indoor environment,,,,,
-GCA_030061355,SAMN33858507,DTO195F2,,,GCA030061355,Paecilomyces_variotii,SR,yes,yes,,?,Belgium,Margarine,,,,,
-GCA_030061365,SAMN33858509,DTO212C5,,,GCA030061365,Paecilomyces_variotii,SR,yes,yes,,?,Netherlands,Vanilla,,,,,
-GCA_030061375,SAMN33858512,DTO021D3,,,GCA030061375,Paecilomyces_variotii,SR,yes,yes,,?,USA,Heat shocked sucrose,,,,,
-GCA_030061385,SAMN33858511,DTO021C3,,,GCA030061385,Paecilomyces_variotii,SR,yes,yes,,?,USA,Spoiled sports drink,,,,,
-GCA_030061555,SAMN33858510,DTO217A2,,,GCA030061555,Paecilomyces_variotii,SR,yes,yes,,?,Netherlands,heat treated ice pop,,,,,
-GCA_030061575,SAMN33858513,DTO271D3,,,GCA030061575,Paecilomyces_variotii,SR,yes,yes,,?,Guatemala,Industry environment,,,,,
-GCA_030061585,SAMN33858516,DTO027B5,,,GCA030061585,Paecilomyces_variotii,SR,yes,yes,,?,USA,Sucrose,,,,,
-GCA_030061595,SAMN33858515,DTO027B3,,,GCA030061595,Paecilomyces_variotii,SR,yes,yes,,?,USA,Spoiled sports drink,,,,,
-GCA_030061835,SAMN33858520,DTO282E5,,,GCA030061835,Paecilomyces_variotii,SR,yes,yes,,?,Italy,Margarine,,,,,
-GCA_030061845,SAMN33858519,DTO280E4,,,GCA030061845,Paecilomyces_variotii,SR,yes,yes,,?,Netherlands,Pectin,,,,,
-GCA_030061855,SAMN33858517,DTO027B6,,,GCA030061855,Paecilomyces_variotii,SR,yes,yes,,?,Netherlands,Spoiled apple juice,,,,,
-GCA_030061875,SAMN33858518,DTO027B9,,,GCA030061875,Paecilomyces_variotii,SR,yes,yes,,?,USA,Spoiled sports drink,,,,,
-GCA_030062295,SAMN33858524,DTO063F5,,,GCA030062295,Paecilomyces_variotii,SR,yes,yes,,?,Netherlands,Human abscess,,,,,
-GCA_030062325,SAMN33858523,DTO045G8,,,GCA030062325,Paecilomyces_variotii,SR,yes,yes,,?,USA,drink,,,,,
-GCA_030062335,SAMN33858521,DTO282F9,,,GCA030062335,Paecilomyces_variotii,SR,yes,yes,,?,UK,"Wall covering, industry environment",,,,,
-GCA_030062345,SAMN33858522,DTO032I4,,,GCA030062345,Paecilomyces_variotii,SR,yes,yes,,?,USA,Spoiled bottle of sweetened tea,,,,,
+genome_accession	biosample	strain	strain2	strain3	genome	species	short-read_or_long-read	assembly_BUSCO_complete	annotation	annotation_BUSCO_complete	reference	isolation_location	isolation_environment	notes	notes_naming
+NA	NA	CBS144490			CBS144490	Paecilomyces_variotii	long-read	0.976855	yes	0.986877	this study	Australia	Culture contaminant	long-read version of CBS144490	
+GCA_043882565	SAMN40250926	CMW18161	CBS118903	CMW-IA-005736	CMW18161	Paecilomyces_dactylethromorphus	short-read	0.975424	yes	0.989501	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043882455	SAMN40250927	CMW18162	CBS124448	CMW-IA-005737	CMW18162	Paecilomyces_dactylethromorphus	short-read	0.976139	yes	0.989501	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043882485	SAMN40250928	CMW18163	CBS124331	CMW-IA-005738	CMW18163	Paecilomyces_dactylethromorphus	short-read	0.976378	yes	0.989979	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043882515	SAMN40250924	CMW18165	CBS124304	CMW-IA-004822	CMW18165	Paecilomyces_lecythidis	short-read	0.980673	yes	0.99141	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Pinus)		
+GCA_043882585	SAMN40250922	CMW18166	CBS124305	CMW-IA-005020	CMW18166	Paecilomyces_lecythidis	short-read	0.980196	yes	0.992126	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043882685	SAMN40250922	CMW18169	CBS118899	CMW-IA-000560	CMW18169	Paecilomyces_lecythidis	short-read	0.97948	yes	0.991887	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Pinus)		
+GCA_043882365	SAMN40250929	CMW18171		CMW-IA-005740	CMW18171	Paecilomyces_lignorum	short-read	0.975662	yes	0.987354	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884725	SAMN40250930	CMW18172		CMW-IA-005741	CMW18172	Paecilomyces_lignorum	short-read	0.976855	yes	0.98807	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043882395	SAMN40250931	CMW18174		CMW-IA-005743	CMW18174	Paecilomyces_lignorum	short-read	0.976139	yes	0.98807	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043882265	SAMN40250932	CMW18175	CBS124306	CMW-IA-005744	CMW18175	Paecilomyces_lignorum	short-read	0.976139	yes	0.987831	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884655	SAMN40250933	CMW18176	CBS124307	CMW-IA-005745	CMW18176	Paecilomyces_lignorum	short-read	0.976855	yes	0.98807	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884645	SAMN40250934	CMW18177	CBS124308	CMW-IA-005746	CMW18177	Paecilomyces_lignorum	short-read	0.976617	yes	0.987115	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884545	SAMN40250935	CMW18178		CMW-IA-005747	CMW18178	Paecilomyces_lignorum	short-read	0.975662	yes	0.987354	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884455	SAMN40250936	CMW18179		CMW-IA-005748	CMW18179	Paecilomyces_lignorum	short-read	0.976378	yes	0.986877	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884465	SAMN40250937	CMW18180	CBS124309	CMW-IA-005749	CMW18180	Paecilomyces_lignorum	short-read	0.975424	yes	0.987592	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884505	SAMN40250938	CMW18181	CBS124310	CMW-IA-005750	CMW18181	Paecilomyces_lignorum	short-read	0.975424	yes	0.987354	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884375	SAMN40250939	CMW18182		CMW-IA-005751	CMW18182	Paecilomyces_lignorum	short-read	0.975901	yes	0.987354	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884365	SAMN40250940	CMW18183		CMW-IA-005752	CMW18183	Paecilomyces_brunneolus	short-read	0.975662	yes	0.987354	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole		
+GCA_043884265	SAMN40250941	CMW18184		CMW-IA-005753	CMW18184	Paecilomyces_lignorum	short-read	0.976139	yes	0.987354	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884225	SAMN40250942	CMW18185		CMW-IA-005754	CMW18185	Paecilomyces_lignorum	short-read	0.976617	yes	0.98807	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884255	SAMN40250943	CMW18186		CMW-IA-005755	CMW18186	Paecilomyces_lignorum	short-read	0.976617	yes	0.987592	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884295	SAMN40250944	CMW18187		CMW-IA-005756	CMW18187	Paecilomyces_lignorum	short-read	0.975901	yes	0.987831	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884075	SAMN40250945	CMW18188	CBS118829	CMW-IA-005757	CMW18188	Paecilomyces_paravariotii	short-read	0.975662	yes	0.987115	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Pinus)		
+GCA_043882735	SAMN40250921	CMW18189	CBS118904	CMW-IA-000553	CMW18189	Paecilomyces_paravariotii	short-read	0.975424	yes	0.987354	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Pinus)		
+GCA_043884025	SAMN40250946	CMW18190		CMW-IA-005758	CMW18190	Paecilomyces_lignorum	short-read	0.976378	yes	0.987354	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_043884065	SAMN40250947	CMW18191		CMW-IA-005759	CMW18191	Paecilomyces_paravariotii	short-read	0.974946	yes	0.985922	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole		
+GCA_043884055	SAMN40250948	CMW18192		CMW-IA-005760	CMW18192	Paecilomyces_paravariotii	short-read	0.974946	yes	0.987592	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole		
+GCA_043884185	SAMN40250949	CMW18193		CMW-IA-005761	CMW18193	Paecilomyces_paravariotii	short-read	0.974946	yes	0.987354	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole		
+GCA_043882635	SAMN40250923	CMW60399		CMW-IA-001075	CMW60399	Paecilomyces_variotii	short-read	0.976617	yes	0.987354	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	Canada	House dust		
+GCA_000497085	SAMD00036776	no5			GCA000497085	Paecilomyces_formosus	short-read	0.977094	yes	0.988308	Oka.etal.2014 (https://doi.org/10.1128/genomea.01162-13)	Japan	soil		
+GCA_001931875	SAMN06076682	IMV00236			GCA001931875	Paecilomyces_variotii	short-read	0.974946	yes	0.985922	NA	Ukraine	wall surface; Unit-4; Chernobyl Nuclear Power Plant	Contains heavy contamination by Rhizopus sp.; explains the much larger genome size and why the BUSCO filter did not pick it up (i.e. rhizopus isnâ€™t in the eurotiales which is the busco lineage used)	NCBI submitted name is Byssochlamys_sp
+GCA_002914405	SAMN08235907	AF001			GCA002914405	Paecilomyces_dactylethromorphus	long-read	0.975185	yes	0.98974	Stamps.etal.2018(https://doi.org/10.1128/genomeA.00085-18)	USA	Biofilm in oil tank		NCBI submitted name is Byssochlamys_sp
+GCA_003116535	SAMN08996309	no7	CO7	NRRL66824	GCA003116535	Paecilomyces_niveus	short-read	0.977571	yes	0.990217	Biango-Daniels.etal.2018(https://doi.org/10.1128/genomea.00556-18)	USA	decaying apple		
+GCA_003123655	SAMN08905905	COH1141			GCA003123655	Paecilomyces_lecythidis	short-read	0.981389	yes	0.99141	NA	USA	Jet propulsion lab contaminant		NCBI submitted name is Paecilomyces sp.
+GCA_003990805	SAMN10127184	MTDF-01			GCA003990805	Paecilomyces_variotii	short-read	0.976855	yes	0.987354	Wang.etal.2019 (https://doi.org/10.7506/spkx1002-6630-20181008-036)	China	daqu	short-read data but somehow VERY contiguous	
+GCA_004022145	SAMN08778357	CBS101075	FRR5219		GCA004022145	Paecilomyces_variotii	long-read	0.975185	yes	0.987115	Urquhart.et.al. 2018 (https://doi.org/10.3389/fmicb.2018.03058)	Japan	heat processed fruit beverage		
+GCA_015266405	SAMN16178742	WS011			GCA015266405	Paecilomyces_formosus	long-read	0.979241	yes	0.990694	NA	China	Asian citrus psyllid (Diaphorina citri)		NCBI submitted name is Paecilomyces variotti
+GCA_018167545		mccf102			GCA018167545	Paecilomyces_lecythidis	short-read	0.98115	yes	0.99141	NA	?	?	No longer available on NCBI	
+GCA_029606105	SAMN13951814	FRR1658			GCA029606105	Paecilomyces_variotii	short-read	0.974708	yes	0.984729	Urquhart.et al.2023a (https://doi.org/10.1073/pnas.2214521120)	Unknown	Leather		
+GCA_029606115	SAMN13951817	FRR5287			GCA029606115	Paecilomyces_paravariotii	short-read	0.974469	yes	0.987354	Urquhart.et al.2023a (https://doi.org/10.1073/pnas.2214521120)	Unknown	Leather		NCBI submitted name is Paecilomyces variotti
+GCA_029606125	SAMN13951815	FRR2889			GCA029606125	Paecilomyces_variotii	short-read	0.976378	yes	0.987592	Urquhart.et al.2023a (https://doi.org/10.1073/pnas.2214521120)	Unknown	Leather		
+GCA_029606135	SAMN13951816	FRR3823			GCA029606135	Paecilomyces_variotii	short-read	0.976855	yes	0.985684	Urquhart.et al.2023a (https://doi.org/10.1073/pnas.2214521120)	Unknown	Leather		
+GCA_029606185	SAMN32135777	FRR3793			GCA029606185	Paecilomyces_formosus	short-read	0.979718	yes	0.992126	Urquhart.et al.2023b (https://doi.org/10.3390/jof9030285)	Australia	Beer		NCBI submitted name is Paecilomyces maximus
+GCA_029606195	SAMN32135779	FRR2337			GCA029606195	Paecilomyces_maximus	short-read	0.978048	yes	0.989024	Urquhart.et al.2023b (https://doi.org/10.3390/jof9030285)	Australia	Human lung		
+GCA_029606205	SAMN32135780	FRR4140			GCA029606205	Paecilomyces_maximus	short-read	0.979718	yes	0.990456	Urquhart.et al.2023b (https://doi.org/10.3390/jof9030285)	Australia	Human eye		
+GCA_029606215	SAMN32135778	FRR4742			GCA029606215	Paecilomyces_maximus	short-read	0.979241	yes	0.990933	Urquhart.et al.2023b (https://doi.org/10.3390/jof9030285)	Australia	Strawberry puree		
+GCA_029606225	SAMN32135776	FRR4481			GCA029606225	Paecilomyces_lecythidis	short-read	0.978764	yes	0.99141	Urquhart.et al.2023b (https://doi.org/10.3390/jof9030285)	Unknown	Unknown		
+GCA_029606255	SAMN32135775	FRR3797			GCA029606255	Paecilomyces_lecythidis	short-read	0.981627	yes	0.991887	Urquhart.et al.2023b (https://doi.org/10.3390/jof9030285)	Australia	Cardboard		NCBI submitted name is Paecilomyces sp.
+GCA_029606265	SAMN32135774	FRR5262			GCA029606265	Paecilomyces_dactylethromorphus	short-read	0.973753	yes	0.989024	Urquhart.et al.2023b (https://doi.org/10.3390/jof9030285)	Australia	Jet fuel		
+GCA_029606295	SAMN32135773	FRR0699	FRR699		GCA029606295	Paecilomyces_dactylethromorphus	short-read	0.974708	yes	0.989501	Urquhart.et al.2023b (https://doi.org/10.3390/jof9030285)	Australia	moldy stored sorghum		
+GCA_029606305	SAMN32135772	FRR3794			GCA029606305	Paecilomyces_fulvus	short-read	0.971606	yes	0.985206	Urquhart.et al.2023b (https://doi.org/10.3390/jof9030285)	Australia	Beer		
+GCA_030060675	SAMN33858503	DTO166G4			GCA030060675	Paecilomyces_variotii	short-read	0.977332	yes	0.987831	NA	Netherlands	heat treated pectin		
+GCA_030060685	SAMN33858502	DTO164E3			GCA030060685	Paecilomyces_variotii	short-read	0.974469	yes	0.986399	NA	Netherlands	Blue berry ingredients		
+GCA_030060715	SAMN33858501	DTO032I3			GCA030060715	Paecilomyces_variotii	short-read	0.975901	yes	0.987115	NA	USA	High fructose corn syrup after heat shock		
+GCA_030060985	SAMN33858508	DTO207G8			GCA030060985	Paecilomyces_variotii	short-read	0.976378	yes	0.987592	NA	Netherlands	Fruit; ingredient		
+GCA_030060995	SAMN33858504	DTO166G5			GCA030060995	Paecilomyces_variotii	short-read	0.975424	yes	0.987354	NA	Netherlands	heat treated pectin		
+GCA_030061005	SAMN33858506	DTO169E5			GCA030061005	Paecilomyces_variotii	short-read	0.976617	yes	0.986877	NA	Netherlands	Indoor environment		
+GCA_030061015	SAMN33858505	DTO169C6			GCA030061015	Paecilomyces_variotii	short-read	0.974946	yes	0.986399	NA	Netherlands	Indoor environment		
+GCA_030061355	SAMN33858507	DTO195F2			GCA030061355	Paecilomyces_variotii	short-read	0.976855	yes	0.986161	NA	Belgium	Margarine		
+GCA_030061365	SAMN33858509	DTO212C5			GCA030061365	Paecilomyces_variotii	short-read	0.975662	yes	0.987592	NA	Netherlands	Vanilla		
+GCA_030061375	SAMN33858512	DTO021D3			GCA030061375	Paecilomyces_variotii	short-read	0.976139	yes	0.987115	NA	USA	Heat shocked sucrose		
+GCA_030061385	SAMN33858511	DTO021C3			GCA030061385	Paecilomyces_variotii	short-read	0.975901	yes	0.986161	NA	USA	Spoiled sports drink		
+GCA_030061555	SAMN33858510	DTO217A2			GCA030061555	Paecilomyces_variotii	short-read	0.976139	yes	0.986877	NA	Netherlands	heat treated ice pop		
+GCA_030061565	SAMN33858514	DTO271G3			GCA030061565	Paecilomyces_paravariotii	short-read	0.973992	yes	0.986877	NA	South Africa	Ice tea		NCBI submitted name is Paecilomyces variotti
+GCA_030061575	SAMN33858513	DTO271D3			GCA030061575	Paecilomyces_variotii	short-read	0.976378	yes	0.986161	NA	Guatemala	Industry environment		
+GCA_030061585	SAMN33858516	DTO027B5			GCA030061585	Paecilomyces_variotii	short-read	0.975662	yes	0.986399	NA	USA	Sucrose		
+GCA_030061595	SAMN33858515	DTO027B3			GCA030061595	Paecilomyces_variotii	short-read	0.975662	yes	0.986638	NA	USA	Spoiled sports drink		
+GCA_030061835	SAMN33858520	DTO282E5			GCA030061835	Paecilomyces_variotii	short-read	0.976617	yes	0.98807	NA	Italy	Margarine		
+GCA_030061845	SAMN33858519	DTO280E4			GCA030061845	Paecilomyces_variotii	short-read	0.97423	yes	0.986877	NA	Netherlands	Pectin		
+GCA_030061855	SAMN33858517	DTO027B6			GCA030061855	Paecilomyces_variotii	short-read	0.975185	yes	0.986161	NA	Netherlands	Spoiled apple juice		
+GCA_030061875	SAMN33858518	DTO027B9			GCA030061875	Paecilomyces_variotii	short-read	0.975901	yes	0.987354	NA	USA	Spoiled sports drink		
+GCA_030062295	SAMN33858524	DTO063F5			GCA030062295	Paecilomyces_variotii	short-read	0.977332	yes	0.987831	NA	Netherlands	Human abscess		
+GCA_030062325	SAMN33858523	DTO045G8			GCA030062325	Paecilomyces_variotii	short-read	0.974946	yes	0.986877	NA	USA	drink		
+GCA_030062335	SAMN33858521	DTO282F9			GCA030062335	Paecilomyces_variotii	short-read	0.976378	yes	0.987354	NA	UK	Wall covering; industry environment		
+GCA_030062345	SAMN33858522	DTO032I4			GCA030062345	Paecilomyces_variotii	short-read	0.975662	yes	0.986399	NA	USA	Spoiled bottle of sweetened tea		
+GCA_037041775	SAMN38095064	R5904B			GCA037041775	Paecilomyces_lecythidis	short-read	0.980673	yes	0.992126	Yan.etal.2024 (https://doi.org/10.1016/j.cell.2024.04.043)	China	human feces		
+GCA_042257975	SAMN36999129	CMW18170	CBS118897	CMW-IA-005739	GCA042257975	Paecilomyces_lecythidis	short-read	0.978525	yes	0.991649	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
+GCA_042258045	SAMN36999128	CMW18167	CBS124330	CMW-IA-000550	GCA042258045	Paecilomyces_lecythidis	short-read	0.979241	yes	0.991649	Visagie.etal.2024 (https://doi.org/10.3114/fuse.2024.13.10)	South Africa	Wooden utility pole (Eucalyptus)		
