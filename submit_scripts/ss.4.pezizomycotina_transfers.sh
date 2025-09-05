@@ -150,8 +150,3 @@ cat starships.pezizomycotina_ncbi.blastn.filt_agg.${minidentity}pid_${minlength2
 done
 done >> starships.pezizomycotina_ncbi.blastn.filt_agg.${minidentity}pid_${minlength2}kb_filt.metadata_plus.sum_per_starship_genome.tsv
 
-
-
-mkdir /scratch/saodonnell/projects/paecilomyces/starfish/pezizomycotina_BLAST
-cp starships.pezizomycotina_ncbi.* /scratch/saodonnell/projects/paecilomyces/starfish/pezizomycotina_BLAST/
-cp pezizomycotina_ncbi.assembly_data_report.tsv /scratch/saodonnell/projects/paecilomyces/starfish/pezizomycotina_BLAST/
